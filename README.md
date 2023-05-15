@@ -24,7 +24,5 @@ _**Liste des commandes :**_
 
 **!help_me :** liste des commandes & recommandation de jeux
 
-
-
 _**Note :**_
 Lors de la présentation du projet j'ai oublié de présenter la commande add_q qui ajoute une question dans l'arbre (!help_me)
