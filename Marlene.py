@@ -15,7 +15,7 @@ hashUser = hashtable_user(10)
 
 help = "```Entrez :\n\ncommandes : pour la liste des commandes\n\ngames : pour une recherche de jeux```"
 
-all_commands = "```!hello : Salutation\n\n!chinese : la plus connue des phrase en chinois pour votre plus grand plaisir\n\n!NewYear : Commande spécialement concue pour les plus grand évenement (attention image clignotantes)\n\n!berseuse : Petite beseuse pour bien s'endormir\n\n!Delete : supprime X message\n\n!last_command : dernière commande entrée\n\n!history : liste des dernières commandes entrées\n\n!delete history : supprime l'historique\n\n!help_me : liste des commandes & recommandation de jeux```"
+all_commands = "```!hello : Salutation\n\n!chinese : la plus connue des phrase en chinois pour votre plus grand plaisir\n\n!NewYear : Commande spécialement concue pour les plus grand évenement (attention image clignotantes)\n\n!berseuse : Petite beseuse pour bien s'endormir\n\n!Delete : supprime X message\n\n!last_command : dernière commande entrée\n\n!history : liste des dernières commandes entrées\n\n!delete history : supprime l'historique\n\n!add_q : ajout d'une question\n\n!duel : combat entre 2 joueurs\n\n!help_me : liste des commandes & recommandation de jeux```"
 
 #Arble de discution
 arbre = tree('Bonjour en quoi puis-je vous aider ?')
@@ -78,11 +78,12 @@ async def chinese(ctx):
 async def NewYear(ctx):
     user_id = ctx.author.id
     add_to_hash("NewYear", hashUser, user_id)
+    
     base_path = os.path.dirname(os.path.abspath(__file__))
     video_path = os.path.join(base_path, 'media', 'oeeee.webm')
     with open(video_path, 'rb') as f:
         video = discord.File(f)
-        await ctx.send(file=video)
+        await ctx.send("BONNE ANNEE !!!", file=video)
 
 #Petite berseuse avant de dormir
 @bot.command()
@@ -163,7 +164,6 @@ async def help_me(ctx):
             await ctx.send(arbre.send_answer(reponse.content))
     await ctx.send("Très bien, bonne journée !")
 
-#ajout de question
 @bot.command()
 async def add_q(ctx):
     def check(m):
@@ -194,7 +194,6 @@ async def add_q(ctx):
     else:
         await ctx.send("Ajout annulé")
 
-#duel entre 2 membres
 @bot.command()
 async def duel(ctx, joueur1: discord.Member, joueur2: discord.Member):
     joueur_1 = Joueur(joueur1)
@@ -272,19 +271,20 @@ async def duel(ctx, joueur1: discord.Member, joueur2: discord.Member):
         await ctx.send(f"{joueur_2.user.mention} reçoit {Dammage_1} dégats")
         if Dammage_1 == 20 :
             await ctx.send("Coup Critique")
-        elif Dammage_1 == 0 :
+        elif Dammage_1 == 0 and joueur_1.isAttack:
             await ctx.send("Echec Critique")
 
         await ctx.send(f"{joueur_1.user.mention} reçoit {Dammage_2} dégats")
         if Dammage_2 == 20 :
             await ctx.send("Coup Critique")
-        elif Dammage_2 == 0 :
+        elif Dammage_2 == 0 and joueur_1.isAttack:
             await ctx.send("Echec Critique")
 
     if joueur_1.pv <= 0:
         await ctx.send(f"victoire de {joueur_2.user.mention} !!!")
     else:
         await ctx.send(f"victoire de {joueur_1.user.mention} !!!")
+
 
 # sauvegarde
 # @bot.command()
