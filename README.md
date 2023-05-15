@@ -1,6 +1,6 @@
 # Bot_discord
 
-_**Liste des commandes :**_
+<u>**Liste des commandes :**</u>
 
 **!hello :** Salutation
 
