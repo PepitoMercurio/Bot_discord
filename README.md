@@ -1,6 +1,6 @@
 # Bot_discord
 
-__**Liste des commandes :**__
+_**Liste des commandes :**_
 
 **!hello :** Salutation
 
@@ -24,5 +24,5 @@ __**Liste des commandes :**__
 
 **!help_me :** liste des commandes & recommandation de jeux
 
-**Note :**
+_**Note :**_
 Lors de la présentation du projet j'ai oublié de présenter la commande add_q qui ajoute une question dans l'arbre (!help_me)
