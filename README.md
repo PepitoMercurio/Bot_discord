@@ -2,7 +2,7 @@
 
 __**Liste des commandes :**__
 
-**!hello :** Salutation
+**!hello :** Salutation\n
 **!chinese :** la plus connue des phrase en chinois pour votre plus grand plaisir
 **!NewYear :** Commande spécialement concue pour les plus grand évenement (attention image clignotantes)
 **!berseuse :** Petite beseuse pour bien s'endormir
